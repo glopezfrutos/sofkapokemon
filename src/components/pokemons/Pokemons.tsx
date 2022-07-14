@@ -7,7 +7,8 @@ import {
     selectPokemonFetchError,
     selectPokemonState,
     selectPokemonStatus
-} from '../../redux/pokemon/pokemonSlice';
+} from '../../redux/pokemon/allPokemonSlice';
+import PokemonCard from './PokemonCard';
 
 const Pokemons = () => {
 
@@ -27,21 +28,8 @@ const Pokemons = () => {
         <div className="m-3">
             <h2>Pokemons</h2>
             <div className="row">
-
-                {!error && pokemonState.results.map(product =>
-                    //<ProductRow key={product.id} p={product} />
-                    <div className='col-sm-3' key={product.name}>
-                        <div className="card" style={{ width: "18rem" }}>
-                            <div className='text-center'>
-                                <img src={"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + product.url.slice(-3, -1) + ".png"} className="img-fluid justify-content-center" />
-                            </div>
-                            <div className="card-body">
-                                <h5 className="card-title">{product.name}</h5>
-                                <p className="card-text">{product.url}</p>
-                            </div>
-
-                        </div>
-                    </div>
+                {!error && pokemonState.map(pokemon =>
+                    <PokemonCard key={pokemon.name} pokemon={pokemon} />
                 )}
             </div>
             {status === fetchStatus.PENDING ?
