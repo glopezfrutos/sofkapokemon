@@ -44,7 +44,7 @@ const MailLogin = () => {
           const errorCode = error.code;
           const errorMessage = error.message;
           console.log('*** Log in error ***');
-          console.log(errorMessage);
+          console.log("Error code: " + errorCode + "Error message: " + errorMessage)
         });
 
       setPassword('')
@@ -75,12 +75,14 @@ const MailLogin = () => {
             value={password}
           />
         </div>
+
         <div className='row'>
-          <button type="submit" className="btn btn-primary col" onClick={(e) => logInForm(e)}>Log In</button><br />
           <button type="button" className="btn btn-secondary col" onClick={() => navigate('/signin')}>Or sign</button><br />
+          <button type="submit" className="btn btn-primary col" onClick={(e) => logInForm(e)}>Log In</button><br />
         </div>
-      </form>
-    </div>
+
+      </form >
+    </div >
   );
 };
 

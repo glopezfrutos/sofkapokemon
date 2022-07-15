@@ -45,11 +45,15 @@ const GoogleLogIn: React.FunctionComponent = () => {
         // Handle Errors here.
         const errorCode = error.code;
         const errorMessage = error.message;
+        console.log("Error code: " + errorCode + "Error message: " + errorMessage)
+        
         // The email of the user's account used.
         const email = error.email;
+        console.log("The email of the user's account used: " + email)
+
         // The AuthCredential type that was used.
         const credential = GoogleAuthProvider.credentialFromError(error);
-        // ...
+        console.log("The AuthCredential type that was used: " + credential)
       });
   }
 
