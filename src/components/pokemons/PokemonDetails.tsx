@@ -28,58 +28,40 @@ const PokemonDetails = () => {
             {pokemon ?
                 <div className='m-3 p-2'>
                     <div className="card">
-                        {/* Pictures */}
-                        <h5 className="card-header text-center">{capitalize(pokemon.name)} </h5>
+                        <h5 className="card-header text-center justify-content-center">{capitalize(pokemon.name)} </h5>
 
-                        <div className="accordion text-center" id="accordionExample">
-                            <div className="accordion-item">
-                                <h2 className="accordion-header" id="headingOne">
-                                    <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                        Front picture
-                                    </button>
-                                </h2>
-                                <div id="collapseOne" className="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                    <div className="accordion-body">
-                                        <img src={pokemon.sprites.front_default} className="img-fluid justify-content-center" />
+                        {/* Pictures */}
+                        <div id="carouselExampleControls" className="carousel slide carousel-dark slide" data-bs-ride="carousel">
+                            <div className="carousel-inner">
+                                <div className="carousel-item active">
+                                    <div className="d-flex justify-content-center">
+                                        <img src={pokemon.sprites.front_default} className="d-block w-20" alt={pokemon.sprites.front_default} />
+                                    </div>
+                                </div>
+                                <div className="carousel-item">
+                                    <div className="d-flex justify-content-center">
+                                        <img src={pokemon.sprites.back_default} className="d-block w-20" alt={pokemon.sprites.back_default} />
+                                    </div>
+                                </div>
+                                <div className="carousel-item">
+                                    <div className="d-flex justify-content-center">
+                                        <img src={pokemon.sprites.front_shiny} className="d-block w-20" alt={pokemon.sprites.front_shiny} />
+                                    </div>
+                                </div>
+                                <div className="carousel-item">
+                                    <div className="d-flex justify-content-center">
+                                        <img src={pokemon.sprites.back_shiny} className="d-block w-20" alt={pokemon.sprites.back_shiny} />
                                     </div>
                                 </div>
                             </div>
-                            <div className="accordion-item">
-                                <h2 className="accordion-header" id="headingTwo">
-                                    <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                        Shiny front picture
-                                    </button>
-                                </h2>
-                                <div id="collapseTwo" className="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                                    <div className="accordion-body">
-                                        <img src={pokemon.sprites.front_shiny} className="img-fluid justify-content-center" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="accordion-item">
-                                <h2 className="accordion-header" id="headingThree">
-                                    <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                        Back picture
-                                    </button>
-                                </h2>
-                                <div id="collapseThree" className="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                                    <div className="accordion-body">
-                                        <img src={pokemon.sprites.back_default} className="img-fluid justify-content-center" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="accordion-item">
-                                <h2 className="accordion-header" id="headingFour">
-                                    <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                        Shiny back picture
-                                    </button>
-                                </h2>
-                                <div id="collapseFour" className="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
-                                    <div className="accordion-body">
-                                        <img src={pokemon.sprites.back_shiny} className="img-fluid justify-content-center" />
-                                    </div>
-                                </div>
-                            </div>
+                            <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                                <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span className="visually-hidden">Previous</span>
+                            </button>
+                            <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                                <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span className="visually-hidden">Next</span>
+                            </button>
                         </div>
 
                         {/* Pokemon details */}

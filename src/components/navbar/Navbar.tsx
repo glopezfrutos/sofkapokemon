@@ -14,7 +14,7 @@ const Navbar = () => {
 
 
     return (
-        <nav className="navbar navbar-expand-md bg-light navbar-light">
+        <nav className="navbar navbar-expand-md bg-light navbar-light sticky-top">
             <div className="container-fluid">
                 <a className="navbar-brand" href="#">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9_Ball_icon.svg/1026px-Pok%C3%A9_Ball_icon.svg.png"
