@@ -39,7 +39,7 @@ const Pokemons = () => {
             <div className="row">
                 {!error && pokemonState.map(pokemon => {
                     if (pokemonFinder !== "") {
-                        if (pokemon.name.includes(pokemonFinder))
+                        if (pokemon.name.includes(pokemonFinder.toLowerCase()))
                             return <PokemonCard key={pokemon.name} pokemon={pokemon} />
                         return
                     }
