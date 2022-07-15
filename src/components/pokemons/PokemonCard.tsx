@@ -1,17 +1,20 @@
 import React from 'react'
-import { allPokemonType, eachPokemonType } from '../../redux/pokemon/pokemonTypes'
+import { useNavigate } from 'react-router-dom'
+import { eachPokemonType } from '../../redux/pokemon/pokemonTypes'
+import { capitalize } from '../../shared/capitalize'
 
 interface IProps {
     pokemon: eachPokemonType
 }
 
-function capitalize(word: string):string {
-    return word[0].toUpperCase() + word.substring(1)
-}
 
 const PokemonCard: React.FunctionComponent<IProps> = ({ pokemon }) => {
+    const navigate = useNavigate();
+
     return (
-        <div className='col-sm-6 col-lg-4 col-xl-3 text-center p-2' key={pokemon.name}>
+        <div className='col-sm-6 col-lg-4 col-xl-3 text-center p-2' key={pokemon.name} onClick={() => {
+            navigate('/details/' + pokemon.order)
+        }} >
             <div className="card" style={{ width: "18rem" }}>
                 <div className='text-center'>
                     <img src={pokemon.sprites.front_default} className="img-fluid justify-content-center" />

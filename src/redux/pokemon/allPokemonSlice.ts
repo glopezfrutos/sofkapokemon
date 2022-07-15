@@ -5,7 +5,7 @@ import { globalUrl } from "../../shared/globalUrl";
 import { IPokemonState, allPokemonType, eachPokemonType } from "./pokemonTypes";
 
 
-export const getEachPokemon = async (pokemon: allPokemonType) => {
+const getEachPokemon = async (pokemon: allPokemonType) => {
     const response = await fetch(pokemon.url, { method: 'GET' })
     const pokemonData = await response.json() as eachPokemonType
     return pokemonData
@@ -32,7 +32,7 @@ export const getAllPokemons = createAsyncThunk('pokemon/fetchAll', async () => {
 
 
 export const allPokemonSlice = createSlice({
-    name: "products",
+    name: "pokemons",
     initialState,
     reducers: {},
     extraReducers: (builder) => {

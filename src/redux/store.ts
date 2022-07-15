@@ -4,7 +4,7 @@ import { allPokemonSlice } from "./pokemon/allPokemonSlice";
 
 const store = configureStore({
     reducer: {
-        pokemons: allPokemonSlice.reducer
+        pokemons: allPokemonSlice.reducer,
     }
 })
 
