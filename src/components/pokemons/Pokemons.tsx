@@ -1,5 +1,5 @@
 import React from 'react'
-import { useAppDispatch } from "../../redux/store";
+import { RootState, useAppDispatch } from "../../redux/store";
 import { useSelector } from "react-redux";
 import { fetchStatus } from "../../shared/fetchStatus";
 import {
@@ -24,13 +24,27 @@ const Pokemons = () => {
         }
     }, [dispatch])
 
+    const [pokemonFinder, setPokemonFinder] = React.useState("")
+
     return (
         <div className="m-3">
             <h2>Pokemons</h2>
+            <form>
+                <div className="mb-3">
+                    <label className="form-label">Pokemon finder: </label>
+                    <input type="text" className="form-control" value={pokemonFinder} onChange={(e) => setPokemonFinder(e.target.value)} />
+                    <div id="emailHelp" className="form-text">Find a pokemon from the list</div>
+                </div>
+            </form>
             <div className="row">
-                {!error && pokemonState.map(pokemon =>
-                    <PokemonCard key={pokemon.name} pokemon={pokemon} />
-                )}
+                {!error && pokemonState.map(pokemon => {
+                    if (pokemonFinder !== "") {
+                        if (pokemon.name.includes(pokemonFinder))
+                            return <PokemonCard key={pokemon.name} pokemon={pokemon} />
+                        return
+                    }
+                    return <PokemonCard key={pokemon.name} pokemon={pokemon} />
+                })}
             </div>
             {status === fetchStatus.PENDING ?
                 <div className="spinner-border" role="status">
